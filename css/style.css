@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: lightblue;
+    
+}
+
+#p{
+    background-color: red;
+    color: white;
+    width: 200px;
+    height: 200px;
+
+}
+
+.fruit{
+    background-color: green;
+    color: white;
+    width: 200px;
+    height: 200px;
+}
