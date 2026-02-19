@@ -3,20 +3,58 @@ body{
     padding: 0;
     box-sizing: border-box;
     background-color: lightblue;
-    
 }
 
 #p{
-    background-color: red;
-    color: white;
-    width: 200px;
-    height: 200px;
-
+    border: 5px 10px 15px 20px;
+    border-color: red green blue yellow;
 }
+
 
 .fruit{
     background-color: green;
     color: white;
     width: 200px;
     height: 200px;
+}
+
+div.polaroid { 
+width: 250px;
+box-shadow: 0 4px 8px 0 red, 0 6px 20px green; text-align: center;
+}
+div.container {
+padding: 10px;
+}
+
+
+p { 
+  float: right; 
+  width: 20%; 
+  margin: 0.5em;
+  border: 2px solid black; 
+}
+
+div { 
+  border: 3px dotted green; 
+  overflow: hidden; 
+}
+.flex-container {
+display: flex;
+background-color: DodgerBlue;
+flex-direction: column-reverse;
+}
+.flex-container > div { margin: 10px; padding: 20px;
+font-size: 30px;
+background-color:white;
+}
+
+
+@keyframes changeColorandSize {
+from {background-color: red;width: 100px;height: 100px;}
+to {background-color: yellow;width: 200px;height: 200px;}
+}
+
+
+div.flex-container{
+background-color: red; animation-name: changeColorandSize; animation-duration: 4s;
 }
