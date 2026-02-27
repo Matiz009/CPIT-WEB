@@ -6,16 +6,18 @@
     <title>Document 2</title>
 </head>
 <body style="background-color: black;">
-    <h1 style="background-color: aquamarine;">Comments Section</h1>
-    <!-- This section is for displaying comments -->
-     <h3 style="background-color: lightgreen;">
-        This is a placeholder for the comments section. Here, users can leave their thoughts and feedback on the content. The comments will be displayed in a threaded format, allowing for easy conversation and interaction among users. Stay tuned for more updates and features in this section!
-     </h3>
-     <p style="background-color: lightgreen;">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga, numquam quaerat! Perferendis soluta reprehenderit quo sapiente officiis nesciunt hic pariatur accusamus, ad molestias sint dolorum cumque quia a animi atque.
-     </p>
-     <a href="https://google.com" style="background-color: lightgreen;">Google</a>
-     <a href="https://google.com" style="background-color: lightgreen;">Google</a>
-     <a href="https://google.com" style="background-color: lightgreen;">Google</a>
+   <label for="Radius">Enter Radius:</label>
+   <input type="text" id="Radius" name="Radius">
+   <button onclick="calculateArea()">Calculate Area</button>
+   <h3 id="result"></h3>
+<script>
+function calculateArea() {
+    const radius = document.getElementById('Radius').value;
+    const area = Math.PI * radius * radius;
+    document.getElementById('result').innerText = `The area of the circle is: ${area.toFixed(2)}`;
+    document.getElementById('Radius').value = '';
+    document.getElementById('result').style.color = 'white';
+}
+</script>
 </body>
 </html>

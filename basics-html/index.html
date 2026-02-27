@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }    </style>
+
+        <link rel="stylesheet" href="../css/basics.css">
+</head>
+<body style="background-color: black;">
+    <p style="background-color: wheat;">A</p>
+    <h1 style="background-color: aliceblue;">B</h1>
+    <ul style="background-color: lightcoral;">
+        <li >C</li>
+        <li >D</li>
+    </ul>
+    <a href="../index.html" style="background-color: aliceblue;">Google</a>
+    <img src="../img/img.jpg" alt="" height="300" width="300">
+    <p style="color: aliceblue;">Lorem, <b>ispum</b> dolor sit amet consectetur <em>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, mollitia at officia voluptate cumque fuga quas inventore optio esse nihil maiores doloribus dolores aspernatur, sint nostrum tenetur, vero odit aperiam.</em>adipisicing elit. Facilis sunt dolorum adipisci. Quo, consectetur. Adipisci ratione dolorum unde temporibus exercitationem consequuntur fuga quam, tempora, deleniti illo qui quod id quidem?</p>
+<script>
+ let element = document.querySelector("h1");
+console.log(element);
+let lists = document.querySelectorAll("li");
+console.log(lists);
+console.log(lists[1]); 
+lists[1].innerHTML = "beta";
+</script>
+</body>
+</html>
