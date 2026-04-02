@@ -18,3 +18,14 @@
 
 
 // Problem with regular function
+
+
+function Car(make, model) {
+    this.make = make;
+    this.model = model;
+    console.log("Car created: " + this.make + " " + this.model);
+}
+
+
+audi = new Car("Audi", "A4");
+civic = new Car("Honda", "Civic");
