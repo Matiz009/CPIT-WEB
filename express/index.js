@@ -4,6 +4,7 @@ const port = 3000;
 const api= 'api/v1/posts'
 const posts = require('./posts.json');
 const { getPosts, getSpecificPost, deleteSpecificPost, updateSpecificPost, createPost } = require('./controller/postController');
+const mongoDB = require('./services/db/connectDb');
 
 //endpoint to get all posts
 app.get(`/${api}`, getPosts);
@@ -12,6 +13,7 @@ app.get(`/${api}`, getPosts);
 // app.get(`/${api}/:id`, getSpecificPost);
 
 //endpoint to delete a specific post by id
+app.delete(`/${api}/:id`, deleteSpecificPost);
 app.delete(`/${api}/:id`, deleteSpecificPost);
 
 
@@ -45,6 +47,9 @@ app.get(`/${api}/:id`, (req,res)=>{
         res.status(404).json({ message: 'Post not found' });
     }
 });
+
+//connect to MongoDB
+mongoDB;
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
