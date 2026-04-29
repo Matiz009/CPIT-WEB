@@ -1,4 +1,4 @@
-const userModel = require('../model/user');
+const UserModel = require('../model/user');
 
 async function createUser(req, res) {
   try {
@@ -7,18 +7,35 @@ async function createUser(req, res) {
 
     res.status(201).json({
       message: "User registered successfully",
-      user
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email
+        // ✅ No password sent
+      }
     });
 
   } catch (err) {
-    console.error(err); // 👈 THIS IS CRITICAL
+    console.error(err);
 
+    // Handle specific errors
+    if (err.code === 11000) { // Duplicate key
+      return res.status(400).json({
+        error: "Username or email already exists"
+      });
+    }
+
+    if (err.name === 'ValidationError') {
+      return res.status(400).json({
+        error: "Invalid input data"
+      });
+    }
+
+    // Generic error for production
     res.status(500).json({
-      error: err.message // 👈 expose real issue
+      error: "Registration failed"
     });
   }
 }
 
-module.exports = {
-    createUser
-};
+module.exports = { createUser };

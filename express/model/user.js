@@ -11,39 +11,16 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         trim: true
     }
-}, { timestamps: true });async function register(req, res) {
-  try {
-    const user = new UserModel(req.body);
-    await user.save();
+}, { timestamps: true });
 
-    res.status(201).json({
-      message: "User registered successfully",
-      user
-    });
+// Async version - NO next() calls
+userSchema.pre('save', async function () {
+    if (!this.isModified('password')) return;
 
-  } catch (err) {
-    console.error(err); // 
-
-    res.status(500).json({
-      error: err.message // 
-    });
-  }
-}
-
-// Hash password
-userSchema.pre('save', async function (next) {
-    if (!this.isModified('password')) return next();
-
-    try {
-        const salt = await bcrypt.genSalt(10);
-        this.password = await bcrypt.hash(this.password, salt);
-        next();
-    } catch (err) {
-        next(err);
-    }
+    const salt = await bcrypt.genSalt(12);
+    this.password = await bcrypt.hash(this.password, salt);
 });
 
-// Compare password
 userSchema.methods.comparePassword = async function (candidatePassword) {
     return bcrypt.compare(candidatePassword, this.password);
 };
