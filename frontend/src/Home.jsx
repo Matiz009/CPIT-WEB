@@ -8,9 +8,7 @@ const Home = () => {
         data.map((item) => {
           return (
             <div key={item.id}>
-             <Card title={item.title}
-              image={item.image} body={item.body}
-              userId={item.userId} />
+             <Card title={item.title} userId={item.userId} body={item.body} image={item.image} />
             </div>
           )
         })

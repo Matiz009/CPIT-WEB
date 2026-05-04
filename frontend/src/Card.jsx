@@ -1,8 +1,8 @@
 import React from 'react'
 
 
-const Card = ({title,image,body,userId}) => {
-  console.log(image);
+const Card = ({ title, userId, body, image }) => {
+  console.log(title, userId, body, image);
   return (
     <>
     <div className="max-w-sm rounded overflow-hidden shadow-lg">
