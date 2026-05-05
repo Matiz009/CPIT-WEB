@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
-export const State = () => {
+export const StateComponent = () => {
     const [counter,setCounter]= useState(0);
+    useEffect(()=>{
+    console.log('Value changed');
+   },[counter]);
     function increment(){
         setCounter(counter+1);
     }
@@ -10,9 +13,7 @@ export const State = () => {
          setCounter(counter-1);
      }
     }
-    useEffect(()=>{
-        console.log("Counter value changed: ",counter);
-    },[decrement])
+   
   return (
     <div>
         <h1>Counter: {counter}</h1>
