@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 3000;
 const api= 'api/v1'
@@ -6,6 +7,8 @@ const mongoDB = require('./services/db/connectDb');
 const {createPost,getPosts, getPostById, deletePost,updatePost} = require('./controller/post');
 const { createUser } = require('./controller/user');
 
+// Enable CORS for all routes
+app.use(cors());
 //middleware to parse data into json
 app.use(express.json());
 
